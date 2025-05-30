@@ -1,0 +1,28 @@
+{
+  "name": "shooter-game",
+  "version": "0.1.0",
+  "description": "Browser-based top-down shooter game with configurable maps and character skins",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "npx live-server --port=3000 --host=0.0.0.0",
+    "dev": "npx live-server --port=3000 --host=0.0.0.0 --watch=src",
+    "setup": "echo 'Project setup complete. Run npm start to begin development.'",
+    "test": "echo 'Tests not yet implemented'",
+    "build": "echo 'Build process not yet implemented'"
+  },
+  "keywords": [
+    "game",
+    "shooter",
+    "canvas",
+    "javascript",
+    "browser-game"
+  ],
+  "author": "scaredfinger",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
