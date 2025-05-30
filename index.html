@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shooter Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Courier New', monospace;
+            color: #ffffff;
+        }
+        
+        #gameContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        #gameCanvas {
+            border: 2px solid #333;
+            background-color: #000;
+            cursor: crosshair;
+        }
+        
+        #gameInfo {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+        
+        #gameStatus {
+            color: #00ff00;
+        }
+        
+        .loading {
+            color: #ffff00;
+        }
+        
+        .error {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div id="gameInfo">
+            <div id="gameStatus">Loading...</div>
+            <div id="gameStats">FPS: -- | Enemies: -- | Score: --</div>
+        </div>
+    </div>
+    
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
