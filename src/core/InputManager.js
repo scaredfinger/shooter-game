@@ -5,6 +5,7 @@ export class InputManager {
         
         // Input state tracking
         this.keys = {};
+        this.keysPressed = {}; // For single-press detection
         this.mouse = {
             x: 0,
             y: 0,
@@ -49,6 +50,9 @@ export class InputManager {
     }
     
     keyDownHandler(event) {
+        if (!this.keys[event.code]) {
+            this.keysPressed[event.code] = true;
+        }
         this.keys[event.code] = true;
         
         // Prevent default behavior for game keys
@@ -100,20 +104,31 @@ export class InputManager {
         // Define which keys should preventDefault
         const gameKeys = [
             'KeyW', 'KeyA', 'KeyS', 'KeyD', // Movement
-            'Space', // Action
-            'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight' // Alternative movement
+            'KeyQ', 'KeyE', // Additional actions
+            'KeyR', 'KeyF', // More actions
+            'KeyC', 'KeyV', 'KeyB', // Even more actions
+            'Space', 'ShiftLeft', 'ControlLeft', // Action modifiers
+            'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', // Alternative movement
+            'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', // Weapon selection
+            'KeyT', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', // Additional game keys
+            'KeyU', 'KeyI', 'KeyO', 'KeyP', // More keys
+            'KeyZ', 'KeyX' // Debug and special keys
         ];
         return gameKeys.includes(keyCode);
     }
     
     update() {
-        // This can be used for input processing that needs to happen each frame
-        // For now, we'll keep it simple
+        // Clear single-press detection for next frame
+        this.keysPressed = {};
     }
     
     // Utility methods for checking input state
     isKeyPressed(keyCode) {
         return !!this.keys[keyCode];
+    }
+    
+    wasKeyPressed(keyCode) {
+        return !!this.keysPressed[keyCode];
     }
     
     isMouseButtonPressed(button) {
@@ -152,4 +167,13 @@ export class InputManager {
     isSecondaryAction() {
         return this.isMouseButtonPressed(2) || this.isKeyPressed('Space'); // Right mouse or space
     }
-}
+    
+    // Debug input checks
+    wasDebugPressed() {
+        return this.wasKeyPressed('KeyZ');
+    }
+    
+    wasResetPressed() {
+        return this.wasKeyPressed('KeyR');
+    }
+}"
