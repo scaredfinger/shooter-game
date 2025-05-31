@@ -146,6 +146,9 @@ export class Game {
     }
     
     update(deltaTime) {
+        // Handle debug input first
+        this.handleDebugInput();
+        
         // Update input state
         this.inputManager.update();
         
@@ -161,9 +164,6 @@ export class Game {
         
         // Update game stats
         this.updateGameStats();
-        
-        // Handle debug input
-        this.handleDebugInput();
     }
     
     updateGameStats() {
@@ -179,8 +179,15 @@ export class Game {
     }
     
     handleDebugInput() {
-        // Toggle debug mode with 'D' key (for testing)
-        // We'll implement a proper debug key handler later
+        // Toggle debug mode with 'Z' key
+        if (this.inputManager.wasDebugPressed()) {
+            this.toggleDebug();
+        }
+        
+        // Reset player with 'R' key
+        if (this.inputManager.wasResetPressed()) {
+            this.spawnPlayer();
+        }
     }
     
     render() {
@@ -247,6 +254,8 @@ export class Game {
     renderInstructions() {
         const instructions = [
             'WASD - Move',
+            'Z - Toggle Debug',
+            'R - Reset Player',
             'Mouse - Aim (coming soon)',
             'Left Click - Shoot (coming soon)'
         ];
@@ -273,12 +282,14 @@ export class Game {
             `Entities: ${this.entities.length}`,
             `Player: ${this.player ? this.player.x.toFixed(1) + ',' + this.player.y.toFixed(1) : 'None'}`,
             `Direction: ${this.player ? this.player.direction : 'N/A'}`,
-            `Moving: ${this.player ? this.player.isMoving : 'N/A'}`
+            `Moving: ${this.player ? this.player.isMoving : 'N/A'}`,
+            `Velocity: ${this.player ? this.player.velocityX.toFixed(1) + ',' + this.player.velocityY.toFixed(1) : 'N/A'}`,
+            `Sprites: ${this.spriteManager.getAvailableSprites().length}`
         ];
         
         const startY = 100;
         debugInfo.forEach((info, index) => {
-            this.ctx.fillText(info, this.canvas.width - 200, startY + index * 16);
+            this.ctx.fillText(info, this.canvas.width - 250, startY + index * 16);
         });
     }
     
