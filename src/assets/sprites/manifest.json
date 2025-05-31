@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "sprites": {
+    "player_male": {
+      "file": "characters/player_male.png",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "directions": 4,
+      "animations": {
+        "idle": { "frames": 1, "fps": 1 },
+        "walk": { "frames": 2, "fps": 8 }
+      }
+    },
+    "player_female": {
+      "file": "characters/player_female.png",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "directions": 4,
+      "animations": {
+        "idle": { "frames": 1, "fps": 1 },
+        "walk": { "frames": 2, "fps": 8 }
+      }
+    },
+    "enemy_soldier": {
+      "file": "characters/enemy_soldier.png",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "directions": 4,
+      "animations": {
+        "idle": { "frames": 1, "fps": 1 },
+        "walk": { "frames": 2, "fps": 6 }
+      }
+    },
+    "enemy_heavy": {
+      "file": "characters/enemy_heavy.png",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "directions": 4,
+      "animations": {
+        "idle": { "frames": 1, "fps": 1 },
+        "walk": { "frames": 2, "fps": 4 }
+      }
+    }
+  }
+}

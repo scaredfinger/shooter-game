@@ -1,0 +1,38 @@
+{
+  "player_male": {
+    "name": "Male Civilian",
+    "sprite": "player_male",
+    "size": { "width": 32, "height": 32 },
+    "speed": 150,
+    "health": 100,
+    "type": "player",
+    "description": "Civilian male character in casual clothing"
+  },
+  "player_female": {
+    "name": "Female Civilian",
+    "sprite": "player_female",
+    "size": { "width": 32, "height": 32 },
+    "speed": 150,
+    "health": 100,
+    "type": "player",
+    "description": "Civilian female character in casual clothing"
+  },
+  "enemy_soldier": {
+    "name": "Basic Soldier",
+    "sprite": "enemy_soldier",
+    "size": { "width": 32, "height": 32 },
+    "speed": 100,
+    "health": 75,
+    "type": "enemy",
+    "description": "Basic military soldier with standard equipment"
+  },
+  "enemy_heavy": {
+    "name": "Heavy Soldier",
+    "sprite": "enemy_heavy",
+    "size": { "width": 48, "height": 48 },
+    "speed": 75,
+    "health": 150,
+    "type": "enemy",
+    "description": "Heavily armored soldier with advanced equipment"
+  }
+}
